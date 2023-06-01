@@ -1,21 +1,33 @@
 #include "main.h"
 
-class Canculator {
+class A {
+public: 
+	virtual void test() {
+		cout << "AAAAAAAAAAAAAAAA" << endl;
+	}
+};
+
+class B : public A {
 public:
-	// overloading - перегрузка
-	static int add(int a, int b) {
-		return a + b;
-	}
-	static int add(int a, int b, int c) {
-		return a + b + c;
-	}
-	static double add(double a, double b) {
-		return a + b;
+	//overriding - переопределение
+	void test() {
+		cout << "BBBBBBBBBBBBBBBBB" << endl;
 	}
 };
 
 int main() {
-	cout << Canculator::add(5, 6, 5) << endl;
+	/*A aa;
+
+	A* a = new A();
+	delete a;*/
+
+	A* a = new A();
+	a->test();
+
+	delete a;
+	
+	a = new B();
+	a->test();
 
 	return 0;
  }
